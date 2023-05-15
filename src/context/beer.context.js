@@ -10,7 +10,7 @@ const BeerProvider = ({ children }) => {
 
 
 
-    useEffect(() => {
+    const getAllBeers = () => {
 
         axios.get('https://ih-beers-api2.herokuapp.com/beers')
             .then((results) => {
@@ -19,12 +19,18 @@ const BeerProvider = ({ children }) => {
             .catch((err) => {
                 console.log(err)
             })
-
-    }, [beers])
-
+    }
 
 
- return <BeerContext.Provider value={{ beers, setBeers }} >
+    useEffect(() => {
+
+        getAllBeers()
+
+    }, [])
+
+
+
+ return <BeerContext.Provider value={{ beers, getAllBeers }} >
             {children}
         </BeerContext.Provider>
 }

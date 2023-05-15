@@ -8,27 +8,13 @@ const RandomBeer = () => {
 
     const { beers } = useContext(BeerContext)
 
-    const [theseBeers, setTheseBeers] = useState([...beers])
-
-    const [beer, setBeer] = (useState(null))
-
-    const getBeer = () => {
-        return theseBeers[Math.floor(Math.random() * beers.length)]
-    }
-
-    useEffect(() => {
-
-        setBeer(getBeer())
-
-    }, [beer])
-
-
+    const beer = beers[Math.floor(Math.random() * beers.length)]
 
   return (
     <>
         <h1>Random Beer</h1>
         {
-            theseBeers ? 
+            beer ? 
 
             <Details beer={beer} />
 

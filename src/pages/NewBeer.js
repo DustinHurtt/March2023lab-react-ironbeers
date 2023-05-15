@@ -9,7 +9,7 @@ export const NewBeer = () => {
     
     const navigate = useNavigate()
 
-    const { beers, setBeers } = useContext(BeerContext)
+    const { beers, getAllBeers } = useContext(BeerContext)
 
     const [ newBeer, setNewBeer ] = useState({
         name: "",
@@ -36,11 +36,13 @@ export const NewBeer = () => {
         axios.post('https://ih-beers-api2.herokuapp.com/beers/new', newBeer)
             .then((results) => {
                 console.log(results.data.message)
-                setBeers([...beers, newBeer])
-                navigate('/all-beers')
+                getAllBeers()
             })
             .catch((err) => {
                 console.log(err)
+            })
+            .finally(() => {
+                navigate('/all-beers')
             })
 
     }
