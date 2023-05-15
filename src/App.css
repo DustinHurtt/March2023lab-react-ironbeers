@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+
+img {
+  height: 20vh;
+}
